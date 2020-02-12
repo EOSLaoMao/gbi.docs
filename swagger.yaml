@@ -1,0 +1,100 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "GBI News"
+  contact:
+    email: "lixiaoyu@eoslaomao.com"
+host: "api.gbi.news"
+tags:
+- name: "GBI Index"
+- name: "BMLS Ratio"
+- name: "Ticker"
+schemes:
+- "https"
+- "http"
+paths:
+  /gbi:
+    get:
+      tags:
+      - "GBI Index"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "type"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        type: "string"
+        items:
+          type: "string"
+          enum:
+          - "day"
+          - "month"
+          - "year"
+          - "all"
+          default: "month"
+      responses:
+        200:
+          description: "successful operation"
+  /currencies:
+    get:
+      tags:
+      - "GBI Index"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+  /bmls:
+    get:
+      tags:
+      - "BMLS Ratio"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "type"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        type: "string"
+        items:
+          type: "string"
+          enum:
+          - "day"
+          - "month"
+          - "year"
+          - "all"
+          default: "month"
+      responses:
+        200:
+          description: "successful operation"
+  /tickers/{symbol}:
+    get:
+      tags:
+      - "Ticker"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "symbol"
+        in: "path"
+        type: "string"
+        required: true
+        description: "support BTC, ETH and EOS only"
+        items:
+          type: "string"
+          enum:
+          - "BTC"
+          - "ETH"
+          - "EOS"
+      - name: "type"
+        in: "query"
+        type: "string"
+        items:
+          type: "string"
+          enum:
+          - "day"
+          - "month"
+          - "year"
+          - "all"
+          default: "month"
+      responses:
+        200:
+          description: "successful operation"
