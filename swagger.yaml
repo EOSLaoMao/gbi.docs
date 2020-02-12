@@ -3,7 +3,7 @@ info:
   version: "1.0.0"
   title: "GBI News"
   contact:
-    email: "lixiaoyu@eoslaomao.com"
+    email: "contact@eoslaomao.com"
 host: "api.gbi.news"
 tags:
 - name: "GBI Index"
